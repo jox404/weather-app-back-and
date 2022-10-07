@@ -8,10 +8,6 @@ export default db.define("user", {
     autoIncrement: true,
     allowNull: false,
   },
-  token: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
   name: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -27,7 +23,7 @@ export default db.define("user", {
     unique: false,
   },
   favoriteCities: {
-    type: DataTypes.STRING,
+    type: DataTypes.JSON,
     allowNull: false,
     defaultValue: "[]",
     /*     set(value) {
@@ -38,5 +34,9 @@ export default db.define("user", {
     type: DataTypes.STRING,
     allowNull: false,
     defaultValue: "São paulo",
+  },
+  lastUpdateWeather: {
+    type: DataTypes.DATE,
+    allowNull: false,
   },
 });
