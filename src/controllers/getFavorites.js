@@ -1,20 +1,22 @@
 import UserRepository from "../models/userModel.js";
 
 export default async (req, res) => {
+  console.log("chamou");
   const user = await UserRepository.findOne({
     where: {
-      token: req.headers["x-access-token"],
+      id: req.params.id,
     },
   });
-  let favoriteCities = user.favoriteCities;
-  favoriteCities = JSON.parse(favoriteCities);
-
+  console.log(user, "user");
   if (user) {
+    let favoriteCities = user.favoriteCities;
+    favoriteCities = JSON.parse(favoriteCities);
+
     res.json({
       favorites: favoriteCities,
       lastUpdateWeather: user.lastUpdateWeather,
     });
   } else {
-    res.json({ menssa: "user dont find" });
+    res.json({ menssage: "unable to fund favorite list of user", user: user });
   }
 };

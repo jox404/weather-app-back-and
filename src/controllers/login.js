@@ -13,14 +13,13 @@ export default async (req, res) => {
     },
   });
   if (user) {
-    console.log(user);
     if (user.password === req.body.password) {
       const token = await generateAccessToken(user.id);
       res.json({ menssage: "User find", user: user, token: token });
     } else {
-      res.json({ menssage: "incorrect password" });
+      res.json({ error: "incorrect password" });
     }
   } else {
-    res.json({ menssage: "User don't find" });
+    res.json({ menssage: "User don't find", error: "User don't find" });
   }
 };

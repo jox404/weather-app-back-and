@@ -26,14 +26,11 @@ export default db.define("user", {
     type: DataTypes.JSON,
     allowNull: false,
     defaultValue: "[]",
-    /*     set(value) {
-      return this.setDataValue("favoriteCities", JSON.stringify(value));
-    }, */
   },
   mainCity: {
-    type: DataTypes.STRING,
+    type: DataTypes.JSON,
     allowNull: false,
-    defaultValue: "São paulo",
+    defaultValue: {},
   },
   lastUpdateWeather: {
     type: DataTypes.DATE,

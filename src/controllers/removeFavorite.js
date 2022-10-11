@@ -4,7 +4,7 @@ export default async (req, res) => {
   try {
     const user = await UserRepository.findOne({
       where: {
-        token: req.headers["x-access-token"],
+        id: req.params.id,
       },
     });
     if (user) {

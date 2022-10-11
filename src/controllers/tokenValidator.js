@@ -7,7 +7,7 @@ export default async (req, res, next) => {
     if (error) {
       return res.status(401).json({ error: error });
     } else {
-      return res.status(200).json({ mensage: decoded });
+      next();
     }
   });
 };

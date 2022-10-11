@@ -3,7 +3,7 @@ import UserModel from "../models/userModel.js";
 export default async (req, res) => {
   const user = await UserModel.findOne({
     where: {
-      token: req.headers["x-access-token"],
+      id: req.params.id,
     },
   });
   const newFavorite = req.body.favorite;
