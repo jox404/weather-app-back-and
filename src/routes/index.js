@@ -15,7 +15,7 @@ import getMainCity from "../controllers/getMainCity.js";
 const routes = express.Router();
 
 routes.get("/", (req, res) => {
-  return res.status(200).json({ status: "Server Online" });
+  return res.status(200).json({ message: "Server back-and is online" });
 });
 routes.get("/findAll", findAll);
 routes.post("/createUser", createUser);
