@@ -4,10 +4,14 @@ import db from "./src/db.js";
 
 const app = express();
 
-app.use(express.json());
+/* app.use(express.json());
 app.use(routes.routes);
 
-db.sync(() => console.log(`Banco de dados conectado:${process.env.DB_NAME}`));
+db.sync(() => console.log(`Banco de dados conectado:${process.env.DB_NAME}`)); */
+
+app.use("/", (req, res) => {
+  res.json({ message: "Hello From Express App" });
+});
 
 const PORT = 8080;
 
